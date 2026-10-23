@@ -1,0 +1,35 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customDatasources": {
+    "rocky-releases": {
+      "defaultRegistryUrlTemplate": "https://dl.rockylinux.org/pub/rocky/9/isos/x86_64/",
+      "format": "html"
+    }
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^rocky\\.pkr\\.hcl$/",
+        "/^README\\.md$/"
+      ],
+      "matchStrings": [
+        "variable \"rocky_version\" \\{[\\s\\S]*?default\\s+=\\s+\"(?<currentValue>9\\.[0-9]+)\"",
+        "\\| Rocky ISO \\| `Rocky-(?<currentValue>9\\.[0-9]+)-x86_64-minimal\\.iso` \\|"
+      ],
+      "datasourceTemplate": "custom.rocky-releases",
+      "depNameTemplate": "rocky-minimal-x86_64",
+      "versioningTemplate": "loose",
+      "extractVersionTemplate": "^Rocky-(?<version>9\\.[0-9]+)-x86_64-minimal\\.iso$"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "rocky-minimal-x86_64"
+      ],
+      "allowedVersions": "/^9\\./",
+      "automerge": false
+    }
+  ]
+}

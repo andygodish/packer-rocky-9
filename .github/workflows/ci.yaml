@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Execute Packer Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+
+      - name: Set up Packer
+        uses: hashicorp/setup-packer@v3
+
+      - name: Prepare example vars
+        run: cp rocky.pkrvars.hcl.example rocky.pkrvars.hcl
+
+      - name: Run Validate
+        run: make validate

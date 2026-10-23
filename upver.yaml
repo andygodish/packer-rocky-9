@@ -1,0 +1,12 @@
+version:
+  file: version.txt
+  pattern: '(?m)^([^\r\n]+)$'
+  group: 1
+
+upstream:
+  file: rocky.pkr.hcl
+  pattern: 'variable "rocky_version" \{[^}]*default\s+=\s+"([^"\n]+)"'
+  group: 1
+
+changelog:
+  file: CHANGELOG.md

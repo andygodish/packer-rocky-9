@@ -1,0 +1,38 @@
+# Local Packer variable files usually contain Proxmox credentials.
+*.pkrvars.hcl
+!*.pkrvars.hcl.example
+
+# Packer cache and output artifacts.
+packer_cache/
+output-*/
+downloaded_iso_path/
+*.box
+crash.log
+crash.*.log
+
+# Local environment.
+.env
+.env.local
+ignore/
+
+# OS/editor files.
+.DS_Store
+._*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Terraform/OpenTofu belongs in tofu-* repos, not this packer-* repo.
+.terraform/
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+*tfplan*
+plan.*
+
+# Temporary SSH build key. Never commit or serve the private key.
+.build/

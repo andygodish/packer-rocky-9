@@ -1,0 +1,13 @@
+proxmox_url      = "https://YOUR-PROXMOX-IP:8006/api2/json"
+proxmox_username = "root@pam"
+proxmox_password = "your-password"
+proxmox_node     = "your-node-name"
+
+# Defaults are pinned in rocky.pkr.hcl. Leave these unset so Renovate updates
+# are not shadowed by a stale ignored local variable file.
+# rocky_version      = "9.8"
+# rocky_iso_checksum = "sha256:d338032cd1cdd41c67139f2f71b4c832c8e4a21943106519db9c7137df7a63d4"
+
+vm_datastore   = "local-lvm"
+iso_datastore  = "local"
+network_bridge = "vmbr0"
