@@ -12,7 +12,7 @@ only after cloning. This project creates no identity server or user directory.
 | Requirement | Value |
 | --- | --- |
 | Builder | Packer `proxmox-iso`, Kickstart |
-| Rocky ISO | `Rocky-9.8-x86_64-minimal.iso` |
+| Rocky ISO | `Rocky-9.9-x86_64-minimal.iso` |
 | ISO checksum | `sha256:d338032cd1cdd41c67139f2f71b4c832c8e4a21943106519db9c7137df7a63d4` |
 | Proxmox artifact | VM template |
 | Template name | `rocky-9-template` |

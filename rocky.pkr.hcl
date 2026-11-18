@@ -39,7 +39,7 @@ variable "proxmox_insecure" {
 variable "rocky_version" {
   type        = string
   description = "Rocky Linux 9 minimal installer ISO version"
-  default     = "9.8"
+  default     = "9.9"
   validation {
     condition     = can(regex("^9\\.[0-9]+$", var.rocky_version))
     error_message = "This project builds Rocky Linux 9 only."
